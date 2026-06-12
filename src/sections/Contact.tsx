@@ -41,10 +41,7 @@ export default function Contact() {
       setStatus('error')
     }
   }
-  const handleEmailClick = () => {
-  window.location.href =
-    "mailto:sureshpackirisamy05@gmail.com?subject=Portfolio Contact";
-};
+  
 
   return (
     <section id="contact" className="py-24 relative overflow-hidden bg-bg-dark">
