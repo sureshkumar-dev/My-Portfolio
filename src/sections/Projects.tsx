@@ -24,6 +24,7 @@ export default function Projects() {
   const [cartCount, setCartCount] = useState(1)
   const [paymentSuccess, setPaymentSuccess] = useState(false)
   const [isPaying, setIsPaying] = useState(false)
+  const [cartifyRole, setCartifyRole] = useState<'buyer' | 'seller' | 'admin'>('buyer')
   
   const [cheatingLogs, setCheatingLogs] = useState([
     { time: '12:04:10', type: 'info', msg: 'Exam session started' },
@@ -58,6 +59,102 @@ export default function Projects() {
   }
 
   const projects: Project[] = [
+    {
+      id: 'cartify',
+      title: 'Cartify',
+      description: 'Full-stack e-commerce marketplace featuring secure JWT-based authentication, role-based routing, and dashboards for Buyers, Sellers, and Admins.',
+      tech: ['React.js', 'TypeScript', 'Node.js', 'Express.js', 'JWT', 'MySQL', 'Redis'],
+      features: ['Dedicated Buyer/Seller/Admin Roles', 'Protected Role Routing & JWT Auth', 'MySQL Transactions & Redis Session Caching'],
+      githubUrl: 'https://github.com/sureshkumar-dev/cartify-ecommerce',
+      demoUrl: 'https://cartify-ecommerce-marketplace.vercel.app/',
+      glowColor: 'rgba(139, 92, 246, 0.15)', // Purple glow
+      mockup: (
+        <div className="w-full h-[220px] bg-[#0E1322] border border-white/5 rounded-xl p-3 flex flex-col justify-between font-sans overflow-hidden">
+          {/* Header Role Selector */}
+          <div className="flex items-center justify-between border-b border-white/5 pb-2">
+            <span className="text-[10px] uppercase font-bold tracking-wider text-accent-purple">
+              Cartify Portal
+            </span>
+            <div className="flex bg-white/5 rounded-md p-0.5 text-[8px] font-semibold text-white/80">
+              <button 
+                onClick={(e) => { e.stopPropagation(); setCartifyRole('buyer'); }}
+                className={`px-2 py-0.5 rounded transition-all ${cartifyRole === 'buyer' ? 'bg-accent-purple text-white shadow-sm' : 'hover:bg-white/5'}`}
+              >
+                Buyer
+              </button>
+              <button 
+                onClick={(e) => { e.stopPropagation(); setCartifyRole('seller'); }}
+                className={`px-2 py-0.5 rounded transition-all ${cartifyRole === 'seller' ? 'bg-accent-purple text-white shadow-sm' : 'hover:bg-white/5'}`}
+              >
+                Seller
+              </button>
+              <button 
+                onClick={(e) => { e.stopPropagation(); setCartifyRole('admin'); }}
+                className={`px-2 py-0.5 rounded transition-all ${cartifyRole === 'admin' ? 'bg-accent-purple text-white shadow-sm' : 'hover:bg-white/5'}`}
+              >
+                Admin
+              </button>
+            </div>
+          </div>
+
+          {/* Role Screen Mockups */}
+          <div className="flex-1 flex flex-col justify-center text-left py-2 font-sans text-xs">
+            {cartifyRole === 'buyer' && (
+              <div className="space-y-1">
+                <div className="text-[10px] text-text-muted uppercase font-semibold">Browse Listings</div>
+                <div className="bg-white/3 border border-white/5 rounded p-2 flex justify-between items-center">
+                  <div>
+                    <div className="font-bold text-white text-[11px]">Wireless Earbuds</div>
+                    <div className="text-[10px] text-emerald-400 font-semibold font-mono">$49.99</div>
+                  </div>
+                  <button 
+                    onClick={(e) => e.stopPropagation()}
+                    className="px-2.5 py-1 rounded bg-accent-purple text-white text-[9px] font-bold uppercase hover:bg-purple-500 transition-colors"
+                  >
+                    Add Cart
+                  </button>
+                </div>
+              </div>
+            )}
+            
+            {cartifyRole === 'seller' && (
+              <div className="space-y-2">
+                <div className="text-[10px] text-text-muted uppercase font-semibold">Storefront Dashboard</div>
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="bg-white/3 border border-white/5 rounded p-2 text-center">
+                    <div className="text-[9px] text-text-muted">Total Sales</div>
+                    <div className="text-sm font-bold text-white font-mono">$1,890.50</div>
+                  </div>
+                  <div className="bg-white/3 border border-white/5 rounded p-2 text-center">
+                    <div className="text-[9px] text-text-muted">Active Orders</div>
+                    <div className="text-sm font-bold text-white font-mono">14 Pending</div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {cartifyRole === 'admin' && (
+              <div className="space-y-2">
+                <div className="text-[10px] text-text-muted uppercase font-semibold">System Settings</div>
+                <div className="bg-[#1c1236]/30 border border-accent-purple/20 rounded p-2 flex items-center justify-between text-[10px] text-white">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 bg-accent-purple rounded-full animate-ping" />
+                    Security Gateway
+                  </span>
+                  <span className="font-mono text-[9px] px-1.5 py-0.5 rounded bg-accent-purple/20 text-accent-purple">
+                    JWT Session Active
+                  </span>
+                </div>
+              </div>
+            )}
+          </div>
+          
+          <div className="border-t border-white/5 pt-1.5 text-right text-[8px] text-text-muted uppercase tracking-wider font-semibold font-mono">
+            {cartifyRole === 'buyer' ? '🛒 marketplace' : cartifyRole === 'seller' ? '💼 merchant tools' : '🛡️ authorization control'}
+          </div>
+        </div>
+      ),
+    },
     {
       id: 'farmguard',
       title: 'FarmGuard',
@@ -282,7 +379,7 @@ export default function Projects() {
           subtitle="Explore some of my core projects, featuring full-stack development, interactive dashboards, and security modules."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
           {projects.map((project, idx) => (
             <motion.div
               key={project.id}
