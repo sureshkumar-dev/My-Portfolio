@@ -49,6 +49,7 @@ const skillCategories: SkillCategory[] = [
       { name: 'MongoDB', color: 'rgba(71, 162, 72, 0.15)' },
       { name: 'Mongoose ODM', color: 'rgba(141, 0, 0, 0.15)' },
       { name: 'MySQL', color: 'rgba(0, 117, 143, 0.15)' },
+      { name: 'Redis', color: 'rgba(216, 44, 36, 0.15)' },
     ],
   },
   {

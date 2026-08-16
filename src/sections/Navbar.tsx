@@ -50,7 +50,7 @@ export default function Navbar() {
               href="#hero" 
               className="text-lg font-bold font-display tracking-tight text-white flex items-center gap-1.5"
             >
-              <span>MyPortfolio</span>
+              <span>SURESHKUMAR</span>
               
             </a>
           </Magnetic>
