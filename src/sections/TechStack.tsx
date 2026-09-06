@@ -40,10 +40,11 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: 'Node.js', color: 'rgba(104, 159, 99, 0.15)' },
       { name: 'Express.js', color: 'rgba(255, 255, 255, 0.12)' },
+      { name: 'BullMQ', color: 'rgba(224, 38, 59, 0.15)' },
     ],
   },
   {
-    title: 'Database',
+    title: 'Database & Caching',
     icon: <Database className="w-5 h-5 text-accent-purple" />,
     skills: [
       { name: 'MongoDB', color: 'rgba(71, 162, 72, 0.15)' },
@@ -58,6 +59,8 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: 'Git', color: 'rgba(240, 80, 50, 0.15)' },
       { name: 'GitHub', color: 'rgba(255, 255, 255, 0.12)' },
+      { name: 'Docker', color: 'rgba(36, 150, 237, 0.15)' },
+      { name: 'AWS Basics', color: 'rgba(255, 153, 0, 0.15)' },
       { name: 'Postman', color: 'rgba(255, 108, 54, 0.15)' },
       { name: 'Vercel', color: 'rgba(255, 255, 255, 0.15)' },
     ],
