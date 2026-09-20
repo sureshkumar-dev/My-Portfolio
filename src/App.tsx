@@ -5,6 +5,7 @@ import Navbar from './sections/Navbar'
 import Hero from './sections/Hero'
 import About from './sections/About'
 import TechStack from './sections/TechStack'
+import Experience from './sections/Experience'
 import Projects from './sections/Projects'
 import Journey from './sections/Journey'
 import Contact from './sections/Contact'
@@ -46,6 +47,9 @@ export default function App() {
         {/* Tech Stack Grids */}
         <TechStack />
 
+        {/* Work Experience & Internships */}
+        <Experience />
+
         {/* Case Studies & Interactive Demos */}
         <Projects />
 
@@ -71,6 +75,7 @@ export default function App() {
           <div className="flex items-center gap-6 text-xs text-text-muted uppercase tracking-wider font-semibold font-mono">
             <a href="#hero" className="hover:text-accent-blue transition-colors">Top</a>
             <a href="#about" className="hover:text-accent-blue transition-colors">About</a>
+            <a href="#experience" className="hover:text-accent-blue transition-colors">Experience</a>
             <a href="#projects" className="hover:text-accent-blue transition-colors">Projects</a>
             <a href="#contact" className="hover:text-accent-blue transition-colors">Contact</a>
           </div>

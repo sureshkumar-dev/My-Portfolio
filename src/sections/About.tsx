@@ -17,7 +17,7 @@ function AnimatedCounter({ value, suffix = '', duration = 1.5 }: CounterProps) {
 
   useEffect(() => {
     if (!isInView) return
-    let start = 0
+    const start = 0
     const end = value
     if (start === end) return
 

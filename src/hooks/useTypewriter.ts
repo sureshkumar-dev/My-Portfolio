@@ -9,18 +9,21 @@ export default function useTypewriter(
   const [wordIdx, setWordIdx] = useState(0)
   const [subIdx, setSubIdx] = useState(0)
   const [isDeleting, setIsDeleting] = useState(false)
-  const [text, setText] = useState('')
 
   useEffect(() => {
+    if (words.length === 0) return
+
     if (subIdx === words[wordIdx].length + 1 && !isDeleting) {
       const timeout = setTimeout(() => setIsDeleting(true), pauseDelay)
       return () => clearTimeout(timeout)
     }
 
     if (subIdx === 0 && isDeleting) {
-      setIsDeleting(false)
-      setWordIdx((prev) => (prev + 1) % words.length)
-      return
+      const timeout = setTimeout(() => {
+        setIsDeleting(false)
+        setWordIdx((prev) => (prev + 1) % words.length)
+      }, 200)
+      return () => clearTimeout(timeout)
     }
 
     const timeout = setTimeout(() => {
@@ -30,9 +33,5 @@ export default function useTypewriter(
     return () => clearTimeout(timeout)
   }, [subIdx, isDeleting, wordIdx, words, typingSpeed, deletingSpeed, pauseDelay])
 
-  useEffect(() => {
-    setText(words[wordIdx].substring(0, subIdx))
-  }, [subIdx, wordIdx, words])
-
-  return text
+  return words[wordIdx]?.substring(0, subIdx) || ''
 }
