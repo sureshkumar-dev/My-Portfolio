@@ -2,13 +2,12 @@
 
 @import "tailwindcss";
 
-
 @theme {
-  --color-bg-dark: #0B0F19;
-  --color-accent-blue: #3B82F6;
-  --color-accent-purple: #8B5CF6;
-  --color-text-light: #FFFFFF;
-  --color-text-muted: #94A3B8;
+  --color-bg-light: #F8FAFC;
+  --color-card-light: #FFFFFF;
+  --color-border-light: #E2E8F0;
+  --color-text-main: #0F172A;
+  --color-text-muted: #64748B;
   
   --font-sans: 'Plus Jakarta Sans', sans-serif;
   --font-display: 'Space Grotesk', sans-serif;
@@ -42,91 +41,65 @@
       box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
     }
     50% {
-      box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+      box-shadow: 0 0 30px rgba(99, 102, 241, 0.2);
     }
   }
 }
 
-/* Base Styles */
+/* Base Styles - Light White/Gray Theme */
 html {
   scroll-behavior: smooth;
-  background-color: #0B0F19;
-  color: #FFFFFF;
+  background-color: #F8FAFC;
+  color: #0F172A;
   overflow-x: hidden;
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: #0B0F19;
-  color: #FFFFFF;
+  background-color: #F8FAFC;
+  color: #0F172A;
   min-height: 100vh;
   overflow-x: hidden;
+  cursor: default;
 }
 
-/* Custom Scrollbar */
+/* Ensure cursor is ALWAYS visible and crisp */
+a, button, select, input, textarea, [role="button"] {
+  cursor: pointer;
+}
+
+/* Custom Scrollbar for Light Theme */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0B0F19;
+  background: #F1F5F9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.2);
+  background: #CBD5E1;
   border-radius: 999px;
-  border: 2px solid #0B0F19;
+  border: 2px solid #F1F5F9;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(59, 130, 246, 0.5);
-}
-
-/* Hide Default Cursor on devices that support hover */
-@media (hover: hover) and (pointer: fine) {
-  body {
-    cursor: none;
-  }
-  a, button, select, input, textarea, [role="button"] {
-    cursor: none;
-  }
+  background: #94A3B8;
 }
 
 /* Custom Selection */
 ::selection {
-  background: rgba(139, 92, 246, 0.3);
-  color: #FFFFFF;
+  background: rgba(99, 102, 241, 0.2);
+  color: #0F172A;
 }
 
-/* Glassmorphism Utilities */
+/* Glassmorphism Panel Utilities for White/Gray Theme */
 .glass-panel {
-  background: rgba(15, 23, 42, 0.65);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.glass-panel-hover {
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.glass-panel-hover:hover {
-  background: rgba(15, 23, 42, 0.8);
-  border-color: rgba(59, 130, 246, 0.3);
-  box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.15);
-  transform: translateY(-4px);
-}
-
-/* Glow effects */
-.glow-spot {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  filter: blur(80px);
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.15;
+  border: 1px solid #E2E8F0;
 }
 
 /* Hide input spin buttons */
